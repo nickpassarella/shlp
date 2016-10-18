@@ -1,4 +1,15 @@
 #!/usr/bin/env ruby
 
 require 'shlp'
-puts Shlp.test
+
+case ARGV[0]
+when "test"
+  STDOUT.puts Shlp.test
+else
+  STDOUT.puts <<-END.gsub(/^\s+\|/, '')
+    |Please provide command name
+    |
+    |Usage:
+    |  shlp test
+  END
+end
